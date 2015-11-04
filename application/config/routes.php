@@ -53,6 +53,9 @@ $route['default_controller'] = 'diccionario';
 $route['404_override'] = 'errors/page_missing';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['login161'] = 'login';
 $route['instalador'] = 'instalador/form';
+$route['ctrl_access'] = 'login/validate';
+$route['dashboard'] = 'administracion';
 
 

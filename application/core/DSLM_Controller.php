@@ -18,11 +18,16 @@ class DSLM_Controller extends CI_Controller{
 		$this->load->helper(array(
 									'form',
 									'url',
-									'file'
+									'file',
+									'security'
 								));
 		//Biblioteca de utilidades para adminsitración de base de datos
 		$this->load->dbutil();
 		//Llama el método init() que efectua el procesos de arranque del sistema
+		//Define los delimitadores para los mensajes de error de todo el sistema
+		$this->form_validation->set_error_delimiters('<p class="text-danger text-left">','</p>');
+		//Carga los archivos de lenguaje
+		$this->lang->load('diccionario_message_lang', 'spanish');
 		$this->init();
 	}
 	
@@ -34,8 +39,11 @@ class DSLM_Controller extends CI_Controller{
 	 * 
 	 */
 	public function init(){
+		/**
+		 * Queda pendiente el instalador y pasamos directamente al diccionario
+		 */
 		//Verifica si el sistema ya fue instalado
-		if(read_file('install.txt') === FALSE ){
+		/*if(read_file('install.txt') === FALSE ){
 			//Aun no ha sido instalado el sistema
 			redirect('instalador');
 		}else{
@@ -44,7 +52,8 @@ class DSLM_Controller extends CI_Controller{
 			//$var_install = json_decode($string_install,TRUE);
 			//echo $var_install['is_installed'];
 
-		}
+		}*/
+		//redirect('diccionario');
 	}
 	
 	
